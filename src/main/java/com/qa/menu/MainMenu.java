@@ -27,6 +27,9 @@ public class MainMenu {
 		scan.nextLine();
 		switch(choice) {
 		case 1:
+			choice();
+			chosenVehicle.createVehicle();
+			break;
 		case 2:
 		case 3:
 		case 4:

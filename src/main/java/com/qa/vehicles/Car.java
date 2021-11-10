@@ -1,5 +1,7 @@
 package com.qa.vehicles;
 
+import java.util.Objects;
+
 public class Car extends Vehicle {
 	
 	private boolean heatedSeats;
@@ -21,4 +23,17 @@ public class Car extends Vehicle {
 	public int bill() {
 		return 250;
 	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!super.equals(obj))
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Car other = (Car) obj;
+		return heatedSeats == other.heatedSeats;
+	}
+	
 }

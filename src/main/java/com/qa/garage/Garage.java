@@ -11,7 +11,7 @@ public class Garage {
 	
 	private static Garage instance = null;
 	
-	private Garage() {
+	protected Garage() {
 		
 	}
 	

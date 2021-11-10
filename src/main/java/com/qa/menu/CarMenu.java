@@ -5,23 +5,32 @@ import java.util.List;
 import java.util.Scanner;
 
 import com.qa.garage.Garage;
+import com.qa.utils.Utils;
 import com.qa.vehicles.Car;
 import com.qa.vehicles.Vehicle;
 
 public class CarMenu implements VehicleMenu<Car> {
 	
-	Garage garage = Garage.getInstance();
-	Scanner scan = new Scanner(System.in);
+	Garage garage;
+	Utils input;
+	
+	public CarMenu() {
+		this.garage = Garage.getInstance();
+		this.input = new Utils();
+	}
+	
+	public CarMenu(Garage garage, Utils input) {
+		this.garage = garage;
+		this.input = input;
+	}
 	
 	public void createVehicle() {
 		System.out.println("How many Wheels?");
-		int wheels = scan.nextInt();
-		scan.nextLine();
+		int wheels = input.getInt();
 		System.out.println("Registration?");
-		String reg = scan.nextLine();
+		String reg = input.getString();
 		System.out.println("Heated Seats? true/false");
-		boolean seats = scan.nextBoolean();
-		scan.nextLine();
+		boolean seats = input.getBoolean();
 		
 		garage.addVehicle(new Car(wheels, reg, seats));
 	}
